@@ -1,0 +1,71 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d095236d72305f645a71d717903e9d8f, type: 3}
+  m_Name: YBoy Open
+  m_EditorClassIdentifier: 
+  PoseName: Default
+  Joints:
+    WristJoint:
+      TransformName: J_Bip_R_Hand
+      LocalPosition: {x: 0.27610648, y: -0.0013029575, z: 0.022814512}
+      LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+    ThumbJoints:
+    - TransformName: J_Bip_R_Thumb1
+      LocalPosition: {x: 0.0026005507, y: -0.012592316, z: 0.01951747}
+      LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+    - TransformName: J_Bip_R_Thumb2
+      LocalPosition: {x: 0.0398674, y: -0.0033593178, z: 0.0403448}
+      LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+    - TransformName: J_Bip_R_Thumb3
+      LocalPosition: {x: 0.025634527, y: -0.0018370152, z: 0.0236854}
+      LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+    IndexJoints:
+    - TransformName: J_Bip_R_Index1
+      LocalPosition: {x: 0.0776639, y: 0.0079010725, z: 0.030603819}
+      LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+    - TransformName: J_Bip_R_Index2
+      LocalPosition: {x: 0.04045677, y: -0.00033795834, z: 0.0029507875}
+      LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+    - TransformName: J_Bip_R_Index3
+      LocalPosition: {x: 0.02493, y: -0.00093722343, z: 0.0011814721}
+      LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+    MiddleJoints:
+    - TransformName: J_Bip_R_Middle1
+      LocalPosition: {x: 0.08051264, y: 0.008284688, z: 0.009297036}
+      LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+    - TransformName: J_Bip_R_Middle2
+      LocalPosition: {x: 0.04507613, y: -0.00038921833, z: 0.0031110458}
+      LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+    - TransformName: J_Bip_R_Middle3
+      LocalPosition: {x: 0.027832985, y: -0.00022256374, z: 0.0015214197}
+      LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+    RingJoints:
+    - TransformName: J_Bip_R_Ring1
+      LocalPosition: {x: 0.081160426, y: 0.008640647, z: -0.009775285}
+      LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+    - TransformName: J_Bip_R_Ring2
+      LocalPosition: {x: 0.04182613, y: -0.0001989603, z: 0.002720926}
+      LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+    - TransformName: J_Bip_R_Ring3
+      LocalPosition: {x: 0.024158001, y: -0.00009036064, z: 0.0012243763}
+      LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+    PinkyJoints:
+    - TransformName: J_Bip_R_Little1
+      LocalPosition: {x: 0.07723224, y: 0.009033561, z: -0.029166255}
+      LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+    - TransformName: J_Bip_R_Little2
+      LocalPosition: {x: 0.03826058, y: -0.00008690357, z: 0.00245649}
+      LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+    - TransformName: J_Bip_R_Little3
+      LocalPosition: {x: 0.022068739, y: -0.0000859499, z: 0.0011032}
+      LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+    OtherJoints: []

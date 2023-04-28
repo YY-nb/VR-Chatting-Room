@@ -1,0 +1,10 @@
+状态类：
+谁的状态_xxx_具体哪种状态
+
+状态枚举：
+谁的状态_xxx
+{
+     具体哪种状态
+}
+
+如： Player_State_Move 对应 Player_State{ Move }

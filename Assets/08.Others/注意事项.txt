@@ -1,0 +1,11 @@
+1.BNG 的 UIPointer脚本的108行的 Gradient curColor = null; 移动至 94行
+2.BNG的HandPoseBlender脚本的Update改成了LateUpdate，这样人物 VRIK Animator不会覆盖HandPose
+3.新增了CustomBNGHandController，以便生成HandPoseBlender的时候能对应上角色专有的HandPose
+4.PhotonServerSettings的Port改成了8000，解决了ClinetTimeout的问题
+5.人物模型的手部节点名字不能改
+6.Point和Thumb动画层级要设为Additive而不是override
+7.VRIK脚本的Plant Feet要取消勾选，否则身体不会跟随相机高度变化而移动。同时缓解了穿模问题
+8.解决抓取Pose被Animator覆盖：模型需转化为FBX,然后可以编辑Animation Rig（Animator中的Avatar），删去手部的transform
+7.Remote Player的抓取动画暂时只能在建模软件中制作，因为人形动画无法在Unity中K帧
+8.要想显示Remote player的抓取动画，需要把下半身的Avatar Mask去掉
+9.Texture whiteboard要生效，碰撞体必须为Mesh Collider

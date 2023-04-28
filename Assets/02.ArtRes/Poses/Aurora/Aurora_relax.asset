@@ -1,0 +1,101 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc30735a6f974fda88a33f70e2b17a3b, type: 3}
+  m_Name: Aurora_relax
+  m_EditorClassIdentifier: 
+  SnappedLeft: 0
+  LeftHand:
+    Position: {x: -0.10057759, y: 0, z: 0}
+    Rotation: {x: -0.57682794, y: 0.4198076, z: 0.53477806, w: 0.45281735}
+    Thumb:
+      Bones:
+      - Position: {x: -0.002132535, y: -0.010327339, z: 0.016006641}
+        Rotation: {x: -0, y: -0, z: -0, w: 1}
+      - Position: {x: -0.03270632, y: -0.002777338, z: 0.03307566}
+        Rotation: {x: -0, y: -0, z: -0, w: 1}
+      - Position: {x: -0.021027908, y: -0.0015199184, z: 0.01941888}
+        Rotation: {x: -0, y: -0, z: -0, w: 1}
+    Index:
+      Bones:
+      - Position: {x: -0.06369363, y: 0.006479621, z: 0.02509895}
+        Rotation: {x: -0, y: -0, z: -0, w: 1}
+      - Position: {x: -0.033179343, y: -0.0002772808, z: 0.0024198107}
+        Rotation: {x: -0, y: -0, z: -0, w: 1}
+      - Position: {x: -0.020445585, y: -0.0007686615, z: 0.00096880645}
+        Rotation: {x: -0, y: -0, z: -0, w: 1}
+    Middle:
+      Bones:
+      - Position: {x: -0.06602995, y: 0.0067942142, z: 0.0076248907}
+        Rotation: {x: -0, y: -0, z: -0, w: 1}
+      - Position: {x: -0.036967993, y: -0.0003196001, z: 0.0025514849}
+        Rotation: {x: -0, y: -0, z: -0, w: 1}
+      - Position: {x: -0.022826374, y: -0.00018274784, z: 0.0012477785}
+        Rotation: {x: -0, y: -0, z: -0, w: 1}
+    Ring:
+      Bones:
+      - Position: {x: -0.066561386, y: 0.007086277, z: -0.00801672}
+        Rotation: {x: -0, y: -0, z: -0, w: 1}
+      - Position: {x: -0.034302294, y: -0.00016331673, z: 0.002231367}
+        Rotation: {x: -0, y: -0, z: -0, w: 1}
+      - Position: {x: -0.019812465, y: -0.00007414818, z: 0.00100407}
+        Rotation: {x: -0, y: -0, z: -0, w: 1}
+    Pinky:
+      Bones:
+      - Position: {x: -0.063339695, y: 0.0074083805, z: -0.02391965}
+        Rotation: {x: -0, y: -0, z: -0, w: 1}
+      - Position: {x: -0.031378448, y: -0.000071525574, z: 0.0020139962}
+        Rotation: {x: -0, y: -0, z: -0, w: 1}
+      - Position: {x: -0.01809889, y: -0.00007081032, z: 0.000904385}
+        Rotation: {x: -0, y: -0, z: -0, w: 1}
+  RightHand:
+    Position: {x: 0.10057759, y: 0, z: 0}
+    Rotation: {x: 0.57682794, y: 0.41980767, z: 0.5347781, w: -0.45281732}
+    Thumb:
+      Bones:
+      - Position: {x: 0.002132535, y: -0.010327339, z: 0.016006641}
+        Rotation: {x: 0, y: 0, z: 0, w: 1}
+      - Position: {x: 0.03270632, y: -0.002777338, z: 0.03307566}
+        Rotation: {x: 0, y: 0, z: 0, w: 1}
+      - Position: {x: 0.021027908, y: -0.0015199184, z: 0.01941888}
+        Rotation: {x: 0, y: 0, z: 0, w: 1}
+    Index:
+      Bones:
+      - Position: {x: 0.06369363, y: 0.006479621, z: 0.02509895}
+        Rotation: {x: 0, y: 0, z: 0, w: 1}
+      - Position: {x: 0.033179343, y: -0.0002772808, z: 0.0024198107}
+        Rotation: {x: 0, y: 0, z: 0, w: 1}
+      - Position: {x: 0.020445585, y: -0.0007686615, z: 0.00096880645}
+        Rotation: {x: 0, y: 0, z: 0, w: 1}
+    Middle:
+      Bones:
+      - Position: {x: 0.06602995, y: 0.0067942142, z: 0.0076248907}
+        Rotation: {x: 0, y: 0, z: 0, w: 1}
+      - Position: {x: 0.036967993, y: -0.0003196001, z: 0.0025514849}
+        Rotation: {x: 0, y: 0, z: 0, w: 1}
+      - Position: {x: 0.022826374, y: -0.00018274784, z: 0.0012477785}
+        Rotation: {x: 0, y: 0, z: 0, w: 1}
+    Ring:
+      Bones:
+      - Position: {x: 0.066561386, y: 0.007086277, z: -0.00801672}
+        Rotation: {x: 0, y: 0, z: 0, w: 1}
+      - Position: {x: 0.034302294, y: -0.00016331673, z: 0.002231367}
+        Rotation: {x: 0, y: 0, z: 0, w: 1}
+      - Position: {x: 0.019812465, y: -0.00007414818, z: 0.00100407}
+        Rotation: {x: 0, y: 0, z: 0, w: 1}
+    Pinky:
+      Bones:
+      - Position: {x: 0.063339695, y: 0.0074083805, z: -0.02391965}
+        Rotation: {x: 0, y: 0, z: 0, w: 1}
+      - Position: {x: 0.031378448, y: -0.000071525574, z: 0.0020139962}
+        Rotation: {x: 0, y: 0, z: 0, w: 1}
+      - Position: {x: 0.01809889, y: -0.00007081032, z: 0.000904385}
+        Rotation: {x: 0, y: 0, z: 0, w: 1}

@@ -1,0 +1,72 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d095236d72305f645a71d717903e9d8f, type: 3}
+  m_Name: GirlB Closed(L)
+  m_EditorClassIdentifier: 
+  PoseName: Default
+  Joints:
+    WristJoint:
+      TransformName: Left wrist
+      LocalPosition: {x: -1.0459189e-10, y: 0.2883295, z: 0.00000012571564}
+      LocalRotation: {x: 0.006837869, y: 0.0068501527, z: 0.026824893, w: 0.9995933}
+    ThumbJoints:
+    - TransformName: Thumb0_L
+      LocalPosition: {x: -0.018890385, y: 0.00375346, z: -0.011465398}
+      LocalRotation: {x: -0.039435428, y: 0.046454232, z: 0.31744123, w: 0.94631815}
+    - TransformName: Thumb1_L
+      LocalPosition: {x: 0.000000014901161, y: 0.059169937, z: 0.000000091968104}
+      LocalRotation: {x: 0.036485855, y: -0.005684937, z: -0.3103928, w: 0.949891}
+    - TransformName: Thumb2_L
+      LocalPosition: {x: 0.000000014901161, y: 0.036616847, z: -0.00000024121255}
+      LocalRotation: {x: 0.020710528, y: 0.0037893618, z: -0.23068212, w: 0.9728014}
+    IndexJoints:
+    - TransformName: IndexFinger1_L
+      LocalPosition: {x: -0.02668932, y: 0.08692953, z: 0.007835537}
+      LocalRotation: {x: -0.5484546, y: 0.013667344, z: -0.017393257, w: 0.83588773}
+    - TransformName: IndexFinger2_L
+      LocalPosition: {x: 0.0000000012246533, y: 0.044678837, z: -2.9758862e-10}
+      LocalRotation: {x: -0.61094785, y: 0.006274974, z: 0.01638736, w: 0.79147637}
+    - TransformName: IndexFinger3_L
+      LocalPosition: {x: -0.0000000037252903, y: 0.02750124, z: -0.00000008454663}
+      LocalRotation: {x: -0.5303243, y: 0.020449795, z: 0.015329974, w: 0.8474096}
+    MiddleJoints:
+    - TransformName: MiddleFinger1_L
+      LocalPosition: {x: -0.0062887175, y: 0.08904488, z: 0.007572623}
+      LocalRotation: {x: -0.5704817, y: 0.009010577, z: -0.0252797, w: 0.8208717}
+    - TransformName: MiddleFinger2_L
+      LocalPosition: {x: -5.9954e-10, y: 0.049768925, z: -0.00000006663893}
+      LocalRotation: {x: -0.60684866, y: -0.00000024051403, z: -0.00000017508863,
+        w: 0.7948174}
+    - TransformName: MiddleFinger3_L
+      LocalPosition: {x: 2.1996294e-15, y: 0.030703543, z: -0.0000000017973851}
+      LocalRotation: {x: -0.52414, y: -0.0000001612986, z: 0.00000043631533, w: 0.8516321}
+    RingJoints:
+    - TransformName: RingFinger1_L
+      LocalPosition: {x: 0.011917801, y: 0.088845655, z: 0.0073631518}
+      LocalRotation: {x: -0.6122219, y: 0.01030803, z: -0.024781112, w: 0.79023033}
+    - TransformName: RingFinger2_L
+      LocalPosition: {x: -8.9442453e-10, y: 0.046167202, z: -0.000000012485282}
+      LocalRotation: {x: -0.5575456, y: -0.0000018526329, z: 0.0000005727632, w: 0.8301464}
+    - TransformName: RingFinger3_L
+      LocalPosition: {x: 3.9307274e-10, y: 0.026642887, z: -0.0000000030581317}
+      LocalRotation: {x: -0.52279973, y: -0.0000005047848, z: 0.0000015162449, w: 0.85245556}
+    PinkyJoints:
+    - TransformName: LittleFinger1_L
+      LocalPosition: {x: 0.030296441, y: 0.083597355, z: 0.007213229}
+      LocalRotation: {x: -0.5771747, y: 0.009217243, z: -0.02520634, w: 0.8161795}
+    - TransformName: LittleFinger2_L
+      LocalPosition: {x: 0.000000011549256, y: 0.042228874, z: -0.0000000013308308}
+      LocalRotation: {x: -0.66924787, y: -0.0000027732444, z: 0.00000042002628, w: 0.74303925}
+    - TransformName: LittleFinger3_L
+      LocalPosition: {x: 0.000000007903993, y: 0.024338208, z: -0.0000000042904285}
+      LocalRotation: {x: -0.5186512, y: -0.000001782005, z: 0.0000011760192, w: 0.85498595}
+    OtherJoints: []
