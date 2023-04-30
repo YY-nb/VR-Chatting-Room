@@ -1,4 +1,5 @@
 using Photon.Pun;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,7 +10,7 @@ public class NetworkSceneLoader : SingletonAutoMonoBase<NetworkSceneLoader>
     private string sceneNameToBeLoaded;
     private bool isSceneSynched = false;
 
-    public void LoadScene(string _sceneName, bool _isSceneSynched)
+    public void LoadScene(string _sceneName, bool _isSceneSynched, Action callback= null)
     {
         sceneNameToBeLoaded = _sceneName;
         isSceneSynched = _isSceneSynched;
@@ -21,8 +22,9 @@ public class NetworkSceneLoader : SingletonAutoMonoBase<NetworkSceneLoader>
 
     IEnumerator InitializeSceneLoading()
     {
+        ClearUtil.ClearDataInManagers();
         //First, we load the Loading scene
-        yield return SceneManager.LoadSceneAsync("LoadingScene");
+        yield return SceneManager.LoadSceneAsync("Loading Scene");
 
         //Load the actual scene
         StartCoroutine(ShowOverlayAndLoad());

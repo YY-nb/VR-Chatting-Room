@@ -21,6 +21,14 @@ MonoBehaviour:
     m_Address: RoomSelectionPanel
     m_ReadOnly: 0
     m_SerializedLabels: []
+  - m_GUID: cb4e52659962820488b2201c63c9fc54
+    m_Address: LoginPanel
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 82785601f6ec37f4dbd162a67fe9ce6c
+    m_Address: HintPanel
+    m_ReadOnly: 0
+    m_SerializedLabels: []
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: bc09b2c6c2640b146b9109f5a92187a6, type: 2}
   m_SchemaSet:

@@ -14,7 +14,7 @@ public class BaseAnimatedPanel : BaseUIPanel
     protected override void OnClick(Button button)
     {
         base.OnClick(button);
-        
+        MusicManager.Instance.StartSound("PokeAudio");
     }
     protected override void Awake()
     {
