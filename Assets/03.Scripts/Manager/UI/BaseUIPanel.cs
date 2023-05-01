@@ -64,7 +64,7 @@ public class BaseUIPanel : BasePanel
         if (uiDic is null)
             return;
 
-        var components = GetComponentsInChildren<T>(true); //获取Panel下的所有T类型的子组件
+        var components = GetComponentsInChildren<T>(true); //获取Panel下的所有T类型的子组件 
         foreach (var uiComponent in components)
         {
             var objName = uiComponent.gameObject.name;

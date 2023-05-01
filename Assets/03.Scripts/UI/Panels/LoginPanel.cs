@@ -8,7 +8,13 @@ public class LoginPanel : BaseAnimatedPanel
     protected override void OnClick(Button button)
     {
         base.OnClick(button);
-        OnLogin();
+        switch (button.name)
+        {
+            case "Start Button":
+                OnLogin();
+                break;
+        }
+
     }
     private void OnLogin()
     {

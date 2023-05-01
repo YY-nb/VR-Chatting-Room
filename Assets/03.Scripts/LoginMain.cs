@@ -7,7 +7,7 @@ public class LoginMain : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        UI3DManager.Instance.ShowPanel<LoginPanel>(nameof(LoginPanel),CanvasName.StartCanvas);
+        UI3DManager.Instance.ShowPanel<StartPanel>(nameof(StartPanel),CanvasName.StartCanvas);
     }
 
     

@@ -9,3 +9,5 @@
 7.Remote Player的抓取动画暂时只能在建模软件中制作，因为人形动画无法在Unity中K帧
 8.要想显示Remote player的抓取动画，需要把下半身的Avatar Mask去掉
 9.Texture whiteboard要生效，碰撞体必须为Mesh Collider
+10. VR Rig 设置两个Avatar Rig目的是在抓取的物品发生碰撞时保持手部抓取的姿态而不会随着现实中的手部移动脱离正在抓取的物品（物理约束功能）
+11.NonNativeKeyboard脚本中OnDisable的Clear方法要删掉

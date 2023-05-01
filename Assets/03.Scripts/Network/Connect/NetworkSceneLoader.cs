@@ -9,25 +9,23 @@ public class NetworkSceneLoader : SingletonAutoMonoBase<NetworkSceneLoader>
 {    
     private string sceneNameToBeLoaded;
     private bool isSceneSynched = false;
-
     public void LoadScene(string _sceneName, bool _isSceneSynched, Action callback= null)
     {
         sceneNameToBeLoaded = _sceneName;
         isSceneSynched = _isSceneSynched;
-
-        StartCoroutine(InitializeSceneLoading());
+        StartCoroutine(InitializeSceneLoading(callback));
     }
 
 
 
-    IEnumerator InitializeSceneLoading()
+    IEnumerator InitializeSceneLoading(Action callback)
     {
         ClearUtil.ClearDataInManagers();
         //First, we load the Loading scene
         yield return SceneManager.LoadSceneAsync("Loading Scene");
 
         //Load the actual scene
-        StartCoroutine(ShowOverlayAndLoad());
+        StartCoroutine(ShowOverlayAndLoad(callback));
     }
 
     /// <summary>
@@ -36,7 +34,7 @@ public class NetworkSceneLoader : SingletonAutoMonoBase<NetworkSceneLoader>
     /// </summary>
     /// <param name="sceneName"></param>
     /// <returns></returns>
-    IEnumerator ShowOverlayAndLoad()
+    IEnumerator ShowOverlayAndLoad(Action callback)
     {
         //Waiting some seconds to prevent "pop" to new scene
         yield return new WaitForSeconds(4f);
@@ -45,6 +43,11 @@ public class NetworkSceneLoader : SingletonAutoMonoBase<NetworkSceneLoader>
         {
             //If Scene should be loaded as a Multiplayer scene, use PhotonNetwork.LoadLevel
             PhotonNetwork.LoadLevel(sceneNameToBeLoaded);
+            while(PhotonNetwork.LevelLoadingProgress < 1)
+            {
+                yield return null;
+            }
+            callback?.Invoke();
         }
         else
         {
@@ -56,6 +59,7 @@ public class NetworkSceneLoader : SingletonAutoMonoBase<NetworkSceneLoader>
             {
                 yield return null;
             }
+            callback?.Invoke();
             yield return null;
         }
     }
