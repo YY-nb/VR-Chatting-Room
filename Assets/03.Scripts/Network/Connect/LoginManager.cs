@@ -9,7 +9,7 @@ using UnityEngine.Rendering;
 
 public class LoginManager : MonoBehaviourPunCallbacks
 {
-    public TMP_InputField PlayerName_InputField;
+    public string PlayerNickName { get; set; }
     private static LoginManager instance;
     public static LoginManager Instance { get { return instance; } }
     private void Awake()
@@ -27,13 +27,13 @@ public class LoginManager : MonoBehaviourPunCallbacks
     #region UI Callback Methods
     public void ConnectToPhotonServer()
     {
-        /*
-        if (PlayerName_InputField != null)
+        
+        if (PlayerNickName != null)
         {
-            PhotonNetwork.NickName = PlayerName_InputField.text;
+            PhotonNetwork.NickName = PlayerNickName;
             PhotonNetwork.ConnectUsingSettings();
         }
-        */
+        
         PhotonNetwork.ConnectUsingSettings();
     }
 

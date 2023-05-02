@@ -28,7 +28,7 @@ public class BaseUIPanel : BasePanel
         AddChildrenUIComponentsToDic<Toggle>();
         AddChildrenUIComponentsToDic<Slider>();
         AddChildrenUIComponentsToDic<ScrollRect>();
-        AddChildrenUIComponentsToDic<InputField>();
+        AddChildrenUIComponentsToDic<TMP_InputField>();
     }                                                                                                                                                        
     protected virtual void OnDestroy()
     {

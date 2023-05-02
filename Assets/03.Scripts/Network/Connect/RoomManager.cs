@@ -38,6 +38,7 @@ public class RoomManager : MonoBehaviourPunCallbacks
     // Start is called before the first frame update
     void Start()
     {
+        //// this makes sure we can use PhotonNetwork.LoadLevel() on the master client and all clients in the same room sync their level automatically
         PhotonNetwork.AutomaticallySyncScene = true;
 
         if (!PhotonNetwork.IsConnectedAndReady)
@@ -119,12 +120,12 @@ public class RoomManager : MonoBehaviourPunCallbacks
                 Debug.Log("Joined room with the map: " + (string)mapType);
                 if ((string)mapType == MultiplayerVRConstants.MAP_TYPE_VALUE_MEETING_ROOM)
                 {
-                    NetworkSceneLoader.Instance.LoadScene("Meeting Room", true, InitNetworkPlayer);
+                    NetworkSceneLoader.Instance.LoadScene("Meeting Room", true);
 
                 }
                 else if ((string)mapType == MultiplayerVRConstants.MAP_TYPE_VALUE_JET_ROOM)
                 {
-                    NetworkSceneLoader.Instance.LoadScene("Jet Room", true, InitNetworkPlayer);
+                    NetworkSceneLoader.Instance.LoadScene("Jet Room", true);
                 }
             }
         }
@@ -231,7 +232,7 @@ public class RoomManager : MonoBehaviourPunCallbacks
         ExitGames.Client.Photon.Hashtable customRoomProperties = new ExitGames.Client.Photon.Hashtable() { { MultiplayerVRConstants.MAP_TYPE_KEY, mapType } };
 
         roomOptions.CustomRoomPropertiesForLobby = roomPropsInLobby;
-        roomOptions.CustomRoomProperties = customRoomProperties;
+        roomOptions.CustomRoomProperties = customRoomProperties; 
 
 
         PhotonNetwork.CreateRoom(randomRoomName, roomOptions);
