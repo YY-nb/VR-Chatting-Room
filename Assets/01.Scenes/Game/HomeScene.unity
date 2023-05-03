@@ -6766,7 +6766,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   OccupancyRateText_ForMeetingRoom: {fileID: 0}
   OccupancyRateText_ForJetRoom: {fileID: 0}
-  RemotePlayerObjectName: IKRemotePlayer
 --- !u!1 &747644302
 GameObject:
   m_ObjectHideFlags: 0

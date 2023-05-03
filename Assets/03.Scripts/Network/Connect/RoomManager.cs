@@ -21,7 +21,6 @@ public class RoomManager : MonoBehaviourPunCallbacks
 
     string mapType;
 
-    [SerializeField] private string RemotePlayerObjectName = "IKRemotePlayer";
 
     #region Unity Methods
     private void Awake()
@@ -130,17 +129,7 @@ public class RoomManager : MonoBehaviourPunCallbacks
             }
         }
     }
-    private void InitNetworkPlayer()
-    {
-        // Network Instantiate the object used to represent our player. This will have a View on it and represent the player         
-        GameObject player = PhotonNetwork.Instantiate(RemotePlayerObjectName, new Vector3(0f, 0f, 0f), Quaternion.identity, 0);
-        NetworkPlayerIK np = player.GetComponent<NetworkPlayerIK>();
-        if (np)
-        {
-            np.transform.name = "MyRemotePlayer";
-            np.AssignPlayerObjects();
-        }
-    }
+
     public override void OnPlayerEnteredRoom(Player newPlayer)
     {
 
