@@ -68,8 +68,8 @@ public abstract class PanelManager
     /// </summary>
     /// <typeparam name="T">面板脚本类</typeparam>
     /// <param name="panelName">面板名</param>
-    /// <param name="callback">面板加载完毕后的委托</param>
-    public virtual void ShowPanel<T>(string panelName, string canvasName, Action<T> callback = null, bool needSavePanel = true, ResourceLoadWay resourceLoadWay = ResourceLoadWay.Addressables) where T : BasePanel
+    /// <param name="onFinish">面板加载完毕后的委托</param>
+    public virtual void ShowPanel<T>(string panelName, string canvasName, Action<T> onFinish = null, Action<T> onBegin = null, bool needSavePanel = true, ResourceLoadWay resourceLoadWay = ResourceLoadWay.Addressables) where T : BasePanel
     {
         if (!canvasDic.ContainsKey(canvasName))
         {
@@ -82,7 +82,8 @@ public abstract class PanelManager
             {
                 AddCurrentPanel(panelDic[panelName]);
             }
-            panelDic[panelName].Show(() => callback?.Invoke(panelDic[panelName] as T));
+            panelDic[panelName].Show(() => onFinish?.Invoke(panelDic[panelName] as T),
+                ()=> onBegin?.Invoke(panelDic[panelName] as T));
             return;
         }
         string panelPath = null;
@@ -109,18 +110,24 @@ public abstract class PanelManager
                     {
                         AddCurrentPanel(panelDic[panelName]);
                     }
-                    callback?.Invoke(panel);
+                    onFinish?.Invoke(panel);
+                }, () =>
+                {
+                    onBegin?.Invoke(panel);
                 });
             });
     }
-    public virtual void ShowLastPanelInList(Action callback = null)
+    public virtual void ShowLastPanelInList(Action onFinish = null, Action onBegin = null)
     {
         if (currentPanels.Count > 0)
         {
             var panel = currentPanels[currentPanels.Count - 1];
             panel.Show(() =>
             {
-                callback?.Invoke();
+                onFinish?.Invoke();
+            }, () =>
+            {
+                onBegin?.Invoke();
             });
         }
     }

@@ -33,6 +33,10 @@ MonoBehaviour:
     m_Address: LoginPanel
     m_ReadOnly: 0
     m_SerializedLabels: []
+  - m_GUID: eec27bd94dc9728438020aae10d8d036
+    m_Address: RoomDetailPanel
+    m_ReadOnly: 0
+    m_SerializedLabels: []
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: bc09b2c6c2640b146b9109f5a92187a6, type: 2}
   m_SchemaSet:

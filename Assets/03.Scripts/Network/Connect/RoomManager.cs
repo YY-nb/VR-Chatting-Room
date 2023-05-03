@@ -21,7 +21,7 @@ public class RoomManager : MonoBehaviourPunCallbacks
 
     string mapType;
 
-
+    public int PlayerCount { get; private set; }
     #region Unity Methods
     private void Awake()
     {
@@ -58,7 +58,13 @@ public class RoomManager : MonoBehaviourPunCallbacks
         PhotonNetwork.JoinRandomRoom();
     }
 
-
+    public void OnEnterRoomButtonClicked(string mapName)
+    {
+        print($"roomName:{mapName}");
+        mapType = mapName;
+        ExitGames.Client.Photon.Hashtable expectedCustomRoomProperties = new ExitGames.Client.Photon.Hashtable() { { MultiplayerVRConstants.MAP_TYPE_KEY, mapType } };
+        PhotonNetwork.JoinRandomRoom(expectedCustomRoomProperties, 0);
+    }
     public void OnEnterRoomButtonClicked_MeetingRoom()
     {
         mapType = MultiplayerVRConstants.MAP_TYPE_VALUE_MEETING_ROOM;
@@ -80,8 +86,6 @@ public class RoomManager : MonoBehaviourPunCallbacks
     public override void OnJoinRandomFailed(short returnCode, string message)
     {
         Debug.Log(message);
-
-
         //If the user tries to join the open worlds but, initially, if there is not room at all
         //Then, we create and join a random room with the selected map.
         CreateAndJoinRoom();

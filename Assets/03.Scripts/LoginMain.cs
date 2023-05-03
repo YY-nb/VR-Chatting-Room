@@ -8,6 +8,7 @@ public class LoginMain : MonoBehaviour
     void Start()
     {
         UI3DManager.Instance.ShowPanel<StartPanel>(nameof(StartPanel),CanvasName.StartCanvas);
+        GameDataManager.Instance.Init();
     }
 
     

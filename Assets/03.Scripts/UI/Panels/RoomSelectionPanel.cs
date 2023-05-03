@@ -9,9 +9,19 @@ public class RoomSelectionPanel : BaseAnimatedPanel
     protected override void OnClick(Button button)
     {
         base.OnClick(button);
-       
-        switch (button.name)
+        string buttonName = button.name;
+        DestroySelf(() =>
         {
+            UI3DManager.Instance.ShowPanel<RoomDetailPanel>(nameof(RoomDetailPanel),CanvasName.HomeCanvas, null, (panel) =>
+            {
+                panel.InitRoomInfo(buttonName);
+            });
+            
+
+        });
+        /*
+        switch (button.name)
+        {                   
             case "Meeting Room Button":
                 DestroySelf(() =>
                 {
@@ -26,18 +36,12 @@ public class RoomSelectionPanel : BaseAnimatedPanel
                 {
                     RoomManager.Instance.OnEnterRoomButtonClicked_JetRoom();
                     ShowHint();
-                });
-                
+                });                
                 break;
         }
+        */
 
     }
-    private void ShowHint()
-    {
-        UI3DManager.Instance.ShowPanel<HintPanel>(nameof(HintPanel), CanvasName.HintCanvas, (panel) =>
-        {
-            panel.ShowHint("Joining the room...");
-        });
-    }
+   
 
 }

@@ -8,10 +8,10 @@ public class BasePanel : MonoBehaviour
     /// <summary>
     /// 显示自己，外部可调用
     /// </summary>
-    public virtual void Show(Action callback = null)
+    public virtual void Show(Action onFinish = null, Action onBegin = null)
     {
-        
-        callback?.Invoke();
+        onBegin?.Invoke();
+        onFinish?.Invoke();
         if (!gameObject.activeSelf)
         {
             gameObject.SetActive(true); 
@@ -21,9 +21,10 @@ public class BasePanel : MonoBehaviour
     /// <summary>
     /// 隐藏自己
     /// </summary>
-    public virtual void Hide(Action callback = null)
+    public virtual void Hide(Action onFinish = null, Action onBegin = null)
     {
-        callback?.Invoke();
+        onBegin?.Invoke();   
+        onFinish?.Invoke();
         if (gameObject.activeSelf)
         {
             gameObject.SetActive(false);

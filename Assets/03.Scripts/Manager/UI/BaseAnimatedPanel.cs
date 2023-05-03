@@ -24,14 +24,16 @@ public class BaseAnimatedPanel : BaseUIPanel
         //transform.localScale = Vector3.zero;
 
     }
-    public override void Show(Action callback = null)
+    public override void Show(Action onFinish = null, Action onBegin = null)
     {
-        ScaleObjUtil.ScaleX(transform, originScale.x, showTime, callback); 
+        onBegin?.Invoke();
+        ScaleObjUtil.ScaleX(transform, originScale.x, showTime, onFinish); 
         // ScaleObjUtil.Scale(transform, originScale, showTime, callback);
 
     }
-    public override void Hide(Action callback = null)
+    public override void Hide(Action callback = null, Action onBegin = null)
     {
+        onBegin?.Invoke();
          ScaleObjUtil.ScaleX(transform, 0, hideTime, callback);
         // ScaleObjUtil.Scale(transform, Vector3.zero, hideTime, callback);
 

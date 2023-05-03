@@ -16,6 +16,7 @@ public class BaseFadePanel : BaseUIPanel
     protected bool isShow = false;
     private Action hideCallBack;  //面板透明度为0时调用的委托
     private Action showCallBack;   //面板透明度为1时调用的委托
+    private Action beginCallback;
     protected override void Awake()
     {
         base.Awake(); 
@@ -30,6 +31,7 @@ public class BaseFadePanel : BaseUIPanel
     {
         if (isShow && canvasGroup.alpha != 1)
         {
+            beginCallback?.Invoke();
             canvasGroup.alpha += Time.deltaTime * alphaShowSpeed;
             if (canvasGroup.alpha >= 1)
             {
@@ -41,6 +43,7 @@ public class BaseFadePanel : BaseUIPanel
         }
         else if (!isShow && canvasGroup.alpha != 0)
         {
+            beginCallback?.Invoke();
             canvasGroup.alpha -= Time.deltaTime * alphaShowSpeed;
             if (canvasGroup.alpha <= 0)
             {
@@ -63,11 +66,12 @@ public class BaseFadePanel : BaseUIPanel
     /// <summary>
     /// 显示自己，淡入淡出模式
     /// </summary>
-    /// <param name="callback">UI透明度由0变化到1时调用的委托</param>
-    public override void Show(Action callback = null)
+    /// <param name="onFinish">UI透明度由0变化到1时调用的委托</param>
+    public override void Show(Action onFinish = null, Action onBegin = null)
     {
         isShow = true;
-        showCallBack = callback;
+        beginCallback = onBegin;
+        showCallBack = onFinish;
         canvasGroup.alpha = 0;
         if (!gameObject.activeInHierarchy)
         {
@@ -77,11 +81,12 @@ public class BaseFadePanel : BaseUIPanel
     /// <summary>
     /// 隐藏自己，淡入淡出模式
     /// </summary>
-    /// <param name="callBack">UI透明时调用的委托</param>
-    public override void Hide(Action callBack = null)
+    /// <param name="onFinish">UI透明时调用的委托</param>
+    public override void Hide(Action onFinish = null, Action onBegin = null)
     {
         isShow = false;
-        hideCallBack = callBack;
+        beginCallback = onBegin;
+        hideCallBack = onFinish;
         canvasGroup.alpha = 1;
         SetInteractableOfCanvasGroup(false);
     }

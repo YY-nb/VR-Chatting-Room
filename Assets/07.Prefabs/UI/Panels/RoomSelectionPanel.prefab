@@ -319,7 +319,7 @@ GameObject:
   - component: {fileID: 8912242366919773261}
   - component: {fileID: 8912242366919773260}
   m_Layer: 5
-  m_Name: Jet Room Button
+  m_Name: Jet Room
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -571,7 +571,7 @@ GameObject:
   - component: {fileID: 8912242368135269412}
   - component: {fileID: 8912242368135269415}
   m_Layer: 5
-  m_Name: Meeting Room Button
+  m_Name: Meeting Room
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
