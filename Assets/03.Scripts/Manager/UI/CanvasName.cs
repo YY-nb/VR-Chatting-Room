@@ -8,5 +8,7 @@ public class CanvasName
     public const string HomeCanvas = nameof(HomeCanvas);
     public const string StartCanvas = nameof(StartCanvas);
     public const string HintCanvas = nameof(HintCanvas);
+    public const string WristUICanvas = nameof(WristUICanvas);
+    public const string WelcomeCanvas = nameof(WelcomeCanvas);
 }
 

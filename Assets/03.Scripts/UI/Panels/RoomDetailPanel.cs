@@ -18,8 +18,17 @@ public class RoomDetailPanel : BaseAnimatedPanel
         title = GetUIComponentByName<TextMeshProUGUI>("Title");
         description =GetUIComponentByName<TextMeshProUGUI>("Description");
         playerCountText = GetUIComponentByName<TextMeshProUGUI>("CountText");
+        EventCenter.Instance.AddListener<int>(EventName.OnUpdateRoom, OnUpdateRoomPlayerCount);
     }
-
+    protected override void OnDestroy()
+    {
+        base.OnDestroy();
+        EventCenter.Instance.RemoveListener<int>(EventName.OnUpdateRoom, OnUpdateRoomPlayerCount);
+    }
+    private void OnUpdateRoomPlayerCount(int playerCount)
+    {
+        playerCountText.text = $"Current Players:{playerCount}/20";
+    }
     protected override void OnClick(Button button)
     {
         base.OnClick(button);
@@ -28,8 +37,9 @@ public class RoomDetailPanel : BaseAnimatedPanel
             case "Join Button":
                 DestroySelf(() =>
                 {
-                    RoomManager.Instance.OnEnterRoomButtonClicked(roomName);
                     ShowHint();
+                    RoomManager.Instance.OnEnterRoomButtonClicked(roomName);
+                   
                 });
                
                 break;
@@ -51,7 +61,7 @@ public class RoomDetailPanel : BaseAnimatedPanel
     }
     private void ShowHint()
     {
-        UI3DManager.Instance.ShowPanel<HintPanel>(nameof(HintPanel), CanvasName.HintCanvas, (panel) =>
+        UI3DManager.Instance.ShowPanel<HintPanel>(nameof(HintPanel), CanvasName.HintCanvas, null, (panel) =>
         {
             panel.ShowHint("Joining the room...");
         });

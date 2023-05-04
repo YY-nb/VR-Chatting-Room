@@ -108,7 +108,10 @@ public abstract class PanelManager
                 {
                     if (needSavePanel)
                     {
-                        AddCurrentPanel(panelDic[panelName]);
+                        if (panelDic.ContainsKey(panelName))
+                        {
+                            AddCurrentPanel(panelDic[panelName]);
+                        }                        
                     }
                     onFinish?.Invoke(panel);
                 }, () =>
@@ -263,7 +266,7 @@ public abstract class PanelManager
     /// <summary>
     /// Çå¿Õ×Öµä
     /// </summary>
-    public virtual void ClearDic()
+    public virtual void Clear()
     {
         panelDic?.Clear();
         canvasDic?.Clear();
@@ -273,7 +276,7 @@ public abstract class PanelManager
     }
     private void AddCurrentPanel(BasePanel panel)
     {
-
+        
         for (int i = 0; i < currentPanels.Count; i++)
         {
             if (currentPanels[i].name == panel.name)

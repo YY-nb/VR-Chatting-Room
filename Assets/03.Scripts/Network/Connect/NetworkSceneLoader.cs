@@ -13,7 +13,7 @@ public class NetworkSceneLoader : SingletonAutoMonoBase<NetworkSceneLoader>
     {
         sceneNameToBeLoaded = _sceneName;
         isSceneSynched = _isSceneSynched;
-        StartCoroutine(InitializeSceneLoading(callback));
+        StartCoroutine(InitializeSceneLoading(callback)); 
     }
 
 

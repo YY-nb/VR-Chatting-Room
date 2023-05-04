@@ -64171,6 +64171,57 @@ Transform:
   m_Father: {fileID: 620970645}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1481219569
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1481219571}
+  - component: {fileID: 1481219570}
+  m_Layer: 0
+  m_Name: PCQuickSceneSwitcher
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1481219570
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1481219569}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 565d0897050f3524591a9ebb5aad0734, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  login: {fileID: 789218849668661990, guid: 27bafa1c7d8a77b47985ab70c0511986, type: 3}
+  joinMeetingRoom: {fileID: -3971639906093743405, guid: 27bafa1c7d8a77b47985ab70c0511986,
+    type: 3}
+  joinJetRoom: {fileID: -3900627529162764653, guid: 27bafa1c7d8a77b47985ab70c0511986,
+    type: 3}
+  leaveRoom: {fileID: 1758887090410273138, guid: 27bafa1c7d8a77b47985ab70c0511986,
+    type: 3}
+--- !u!4 &1481219571
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1481219569}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -4.1502357, y: 13.782178, z: -10.297157}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 10
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1481322404
 GameObject:
   m_ObjectHideFlags: 0
@@ -68858,7 +68909,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a10afcd55c32094ea473631b6231a7a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PlayerName_InputField: {fileID: 0}
 --- !u!4 &1600630985
 Transform:
   m_ObjectHideFlags: 0
@@ -86450,7 +86500,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2014633201}
-  m_LocalRotation: {x: -0.02246434, y: -0.060239673, z: 0.9976876, w: 0.022045583}
+  m_LocalRotation: {x: -0.02246434, y: -0.060239665, z: 0.9976876, w: 0.022045579}
   m_LocalPosition: {x: -0.05356621, y: -0.0024395068, z: 0.0014644878}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0

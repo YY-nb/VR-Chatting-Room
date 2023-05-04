@@ -8,6 +8,7 @@ public class HomeMain : MonoBehaviour
     {
         UI3DManager.Instance.InitCanvas();
         UI3DManager.Instance.ShowPanel<RoomSelectionPanel>(nameof(RoomSelectionPanel), CanvasName.HomeCanvas);
+        UI3DManager.Instance.ShowPanel<WelcomePanel>(nameof(WelcomePanel), CanvasName.WelcomeCanvas);
         
     }
 }

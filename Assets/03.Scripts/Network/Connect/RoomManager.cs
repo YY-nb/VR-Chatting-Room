@@ -64,12 +64,14 @@ public class RoomManager : MonoBehaviourPunCallbacks
         mapType = mapName;
         ExitGames.Client.Photon.Hashtable expectedCustomRoomProperties = new ExitGames.Client.Photon.Hashtable() { { MultiplayerVRConstants.MAP_TYPE_KEY, mapType } };
         PhotonNetwork.JoinRandomRoom(expectedCustomRoomProperties, 0);
+        ClearUtil.ClearDataInManagers();
     }
     public void OnEnterRoomButtonClicked_MeetingRoom()
     {
         mapType = MultiplayerVRConstants.MAP_TYPE_VALUE_MEETING_ROOM;
         ExitGames.Client.Photon.Hashtable expectedCustomRoomProperties = new ExitGames.Client.Photon.Hashtable() { { MultiplayerVRConstants.MAP_TYPE_KEY, mapType } };
         PhotonNetwork.JoinRandomRoom(expectedCustomRoomProperties, 0);
+        ClearUtil.ClearDataInManagers();
     }
 
     public void OnEnterRoomButtonClicked_JetRoom()
@@ -77,7 +79,7 @@ public class RoomManager : MonoBehaviourPunCallbacks
         mapType = MultiplayerVRConstants.MAP_TYPE_VALUE_JET_ROOM;
         ExitGames.Client.Photon.Hashtable expectedCustomRoomProperties = new ExitGames.Client.Photon.Hashtable() { { MultiplayerVRConstants.MAP_TYPE_KEY, mapType } };
         PhotonNetwork.JoinRandomRoom(expectedCustomRoomProperties, 0);
-
+        ClearUtil.ClearDataInManagers();
 
     }
     #endregion
@@ -133,20 +135,23 @@ public class RoomManager : MonoBehaviourPunCallbacks
             }
         }
     }
-
+    
     public override void OnPlayerEnteredRoom(Player newPlayer)
     {
 
         Debug.Log(newPlayer.NickName + " joined to:" + "Player Count: " + PhotonNetwork.CurrentRoom.PlayerCount);
     }
-    /*
+    
     public override void OnRoomListUpdate(List<RoomInfo> roomList)
     {
         if (roomList.Count == 0)
         {
             //There is no room at all.
-            OccupancyRateText_ForMeetingRoom.text = 0 + " / " + 20;
-            OccupancyRateText_ForJetRoom.text = 0 + " / " + 20;
+            PlayerCount = 0;
+            if (UI3DManager.Instance.GetPanel<RoomDetailPanel>(nameof(RoomDetailPanel)))
+            {
+                this.TriggerEvent(EventName.OnUpdateRoom, PlayerCount);
+            }
         }
 
         foreach (RoomInfo room in roomList)
@@ -154,22 +159,28 @@ public class RoomManager : MonoBehaviourPunCallbacks
             Debug.Log(room.Name);
             if (room.Name.Contains(MultiplayerVRConstants.MAP_TYPE_VALUE_MEETING_ROOM))
             {
-                //Update the Outdoor room map
+                //Update the meeting room map
                 Debug.Log("Room is an meeting room map. Player count is: " + room.PlayerCount);
-                OccupancyRateText_ForJetRoom.text = room.PlayerCount + " / " + 20;
-
+                PlayerCount = room.PlayerCount;
+                if (UI3DManager.Instance.GetPanel<RoomDetailPanel>(nameof(RoomDetailPanel)))
+                {
+                    this.TriggerEvent(EventName.OnUpdateRoom, PlayerCount);
+                }
             }
             else if (room.Name.Contains(MultiplayerVRConstants.MAP_TYPE_VALUE_JET_ROOM))
             {
                 //Update the School room map
                 Debug.Log("Room is a jet room map. Player count is: " + room.PlayerCount);
-
-                OccupancyRateText_ForMeetingRoom.text = room.PlayerCount + " / " + 20;
+                PlayerCount = room.PlayerCount;
+                if (UI3DManager.Instance.GetPanel<RoomDetailPanel>(nameof(RoomDetailPanel)))
+                {
+                    this.TriggerEvent(EventName.OnUpdateRoom, PlayerCount);
+                }
             }
 
         }
     }
-    */
+    
 
     public override void OnJoinedLobby()
     {
@@ -215,7 +226,7 @@ public class RoomManager : MonoBehaviourPunCallbacks
     {
         string randomRoomName = "Room_" + mapType + Random.Range(0, 10000);
         RoomOptions roomOptions = new RoomOptions();
-        roomOptions.MaxPlayers = 8;
+        roomOptions.MaxPlayers = 20; 
 
         string[] roomPropsInLobby = { MultiplayerVRConstants.MAP_TYPE_KEY };
         //There are 2 different maps: Outdoor and School

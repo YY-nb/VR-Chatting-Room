@@ -9,19 +9,19 @@ EditorBuildSettings:
     path: Assets/01.Scenes/Game/LoginScene.unity
     guid: 24d1cc17ad2be034da729853ec125cf6
   - enabled: 1
-    path: Assets/01.Scenes/Game/Jet Room.unity
-    guid: 4838153e50e86b340a556fee608656ff
+    path: Assets/01.Scenes/Game/Loading Scene.unity
+    guid: df71d30646f8321409fb0e2c051342a8
   - enabled: 1
     path: Assets/01.Scenes/Game/HomeScene.unity
     guid: 4c96545b10575474098c44ad5784858b
   - enabled: 1
-    path: Assets/01.Scenes/Game/Loading Scene.unity
-    guid: df71d30646f8321409fb0e2c051342a8
-  - enabled: 1
     path: Assets/01.Scenes/Game/Meeting Room.unity
     guid: bc6337433c411114eac9971099bb6f87
   - enabled: 1
-    path: Assets/01.Scenes/MPDemo 1.unity
+    path: Assets/01.Scenes/Game/Jet Room.unity
+    guid: 4838153e50e86b340a556fee608656ff
+  - enabled: 1
+    path: Assets/09.Test/MPDemo 1.unity
     guid: 700ad4de78c4f994db0fd04473737599
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: d8bf102c98ce1714297fc8fa3dfcb4a1,

@@ -9,7 +9,7 @@ public static class ClearUtil
     /// </summary>
    public static void ClearDataInManagers()
     {
-        UI3DManager.Instance.ClearDic();
+        UI3DManager.Instance.Clear();
         EventCenter.Instance.Clear();
         GameObjectPoolManager.Instance.ClearPool();
         ComponentPoolManager.Instance.ClearPool();
