@@ -57,7 +57,7 @@ public class RoomDetailPanel : BaseAnimatedPanel
         roomInfo = GameDataManager.Instance.GetRoomInfo(roomName);
         title.text = roomName;
         description.text = roomInfo.roomDescription;
-        playerCountText.text = $"Current Players:{RoomManager.Instance.PlayerCount}/20";
+        playerCountText.text = $"Current Players:{RoomManager.Instance.GetRoomPlayerCount(roomName)}/20";
     }
     private void ShowHint()
     {

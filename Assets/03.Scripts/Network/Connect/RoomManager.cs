@@ -12,16 +12,10 @@ public class RoomManager : MonoBehaviourPunCallbacks
 {
     private static RoomManager instance;
     public static RoomManager Instance { get { return instance; } }
-    [SerializeField]
-    TextMeshProUGUI OccupancyRateText_ForMeetingRoom;
+    
 
-
-    [SerializeField]
-    TextMeshProUGUI OccupancyRateText_ForJetRoom;
-
-    string mapType;
-
-    public int PlayerCount { get; private set; }
+    private string mapType;
+    private Dictionary<string, int> roomPlayerCountDic = new Dictionary<string, int>();
     #region Unity Methods
     private void Awake()
     {
@@ -33,6 +27,7 @@ public class RoomManager : MonoBehaviourPunCallbacks
         {
             instance = this;
         }
+        InitRoomPlayerCountDic();
     }
     // Start is called before the first frame update
     void Start()
@@ -147,10 +142,9 @@ public class RoomManager : MonoBehaviourPunCallbacks
         if (roomList.Count == 0)
         {
             //There is no room at all.
-            PlayerCount = 0;
             if (UI3DManager.Instance.GetPanel<RoomDetailPanel>(nameof(RoomDetailPanel)))
             {
-                this.TriggerEvent(EventName.OnUpdateRoom, PlayerCount);
+                this.TriggerEvent(EventName.OnUpdateRoom, 0);
             }
         }
 
@@ -160,21 +154,23 @@ public class RoomManager : MonoBehaviourPunCallbacks
             if (room.Name.Contains(MultiplayerVRConstants.MAP_TYPE_VALUE_MEETING_ROOM))
             {
                 //Update the meeting room map
+                string roomName = MultiplayerVRConstants.MAP_TYPE_VALUE_MEETING_ROOM;
                 Debug.Log("Room is an meeting room map. Player count is: " + room.PlayerCount);
-                PlayerCount = room.PlayerCount;
+                ChangeRoomPlayerCount(roomName, room.PlayerCount);               
                 if (UI3DManager.Instance.GetPanel<RoomDetailPanel>(nameof(RoomDetailPanel)))
                 {
-                    this.TriggerEvent(EventName.OnUpdateRoom, PlayerCount);
+                    this.TriggerEvent(EventName.OnUpdateRoom, GetRoomPlayerCount(roomName));
                 }
             }
             else if (room.Name.Contains(MultiplayerVRConstants.MAP_TYPE_VALUE_JET_ROOM))
             {
                 //Update the School room map
+                string roomName = MultiplayerVRConstants.MAP_TYPE_VALUE_JET_ROOM;
                 Debug.Log("Room is a jet room map. Player count is: " + room.PlayerCount);
-                PlayerCount = room.PlayerCount;
+                ChangeRoomPlayerCount(roomName, room.PlayerCount);
                 if (UI3DManager.Instance.GetPanel<RoomDetailPanel>(nameof(RoomDetailPanel)))
                 {
-                    this.TriggerEvent(EventName.OnUpdateRoom, PlayerCount);
+                    this.TriggerEvent(EventName.OnUpdateRoom, GetRoomPlayerCount(roomName));
                 }
             }
 
@@ -218,7 +214,14 @@ public class RoomManager : MonoBehaviourPunCallbacks
             PhotonNetwork.JoinRoom(roomName);
         }
     }
-
+    public int GetRoomPlayerCount(string roomName)
+    {
+        if(roomPlayerCountDic.TryGetValue(roomName, out int count))
+        {
+            return count;
+        }
+        return 0;
+    }
     #endregion
 
     #region Private Methods
@@ -241,7 +244,25 @@ public class RoomManager : MonoBehaviourPunCallbacks
 
         PhotonNetwork.CreateRoom(randomRoomName, roomOptions);
     }
-
+    private void InitRoomPlayerCountDic()
+    {
+        List<Room> roomInfoList = GameDataManager.Instance.GetRoomList();
+        for(int i = 0; i < roomInfoList.Count; i++)
+        {
+            Room room = roomInfoList[i];
+            if (!roomPlayerCountDic.ContainsKey(room.roomName))
+            {
+                roomPlayerCountDic.Add(room.roomName, 0);
+            }
+        }
+    }
+    private void ChangeRoomPlayerCount(string roomName, int playerCount)
+    {
+        if (roomPlayerCountDic.ContainsKey(roomName))
+        {
+            roomPlayerCountDic[roomName] = playerCount;
+        }
+    }
     #endregion
 }
 

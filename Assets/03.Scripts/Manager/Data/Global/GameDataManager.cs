@@ -1,3 +1,4 @@
+using Photon.Realtime;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -52,6 +53,11 @@ public class GameDataManager : SingletonAutoMonoBase<GameDataManager>
             return room;
         }
         return null;
+    }
+    public List<Room> GetRoomList()
+    {
+        List<Room> roomInfoList = new List<Room>(roomInfoDic.Values);
+        return roomInfoList;
     }
     #endregion
 }
