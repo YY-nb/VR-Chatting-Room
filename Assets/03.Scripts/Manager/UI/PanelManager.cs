@@ -125,37 +125,31 @@ public abstract class PanelManager
         if (currentPanels.Count > 0)
         {
             var panel = currentPanels[currentPanels.Count - 1];
-            panel.Show(() =>
-            {
-                onFinish?.Invoke();
-            }, () =>
-            {
-                onBegin?.Invoke();
-            });
+            panel.Show(onFinish, onBegin);
         }
     }
-    public virtual void HideLastPanelInList(Action callback = null, bool needSavePanel = false)
+
+    public virtual void HideLastPanelInList(Action onFinish = null, Action onBegin = null, bool needSavePanel = false)
     {
         if (currentPanels.Count > 0)
         {
             var panel = currentPanels[currentPanels.Count - 1];
+
             panel.Hide(() =>
             {
                 if (!needSavePanel)
                 {
                     RemoveCurrentPanel(panel);
-                }                
-                callback?.Invoke();
-            });
+                }
+                onFinish?.Invoke();
+            }, onBegin);
         }
     }
-    public virtual void DestroyLastPanelInList(Action callback = null, bool needSavePanel = false)
+    public virtual void DestroyLastPanelInList(Action callback = null, Action onBegin = null, bool needSavePanel = false)
     {
         if (currentPanels.Count > 0)
         {
             var panel = currentPanels[currentPanels.Count - 1];
-            
-            
             panel.Hide(() =>
             {
                 if (!needSavePanel)
@@ -164,10 +158,10 @@ public abstract class PanelManager
                 }
                 OnDestroyPanel(panel.name);
                 callback?.Invoke();
-            });
+            }, onBegin);
         }
     }
-    public void HideAllPanelInList(Action callback = null, bool needSavePanel = false)
+    public void HideAllPanelInList(Action onFinish = null, Action onBegin = null, bool needSavePanel = false)
     {
         if (currentPanels.Count > 0)
         {
@@ -180,16 +174,16 @@ public abstract class PanelManager
                     {
                         RemoveCurrentPanel(panel);
                     }
-                    callback?.Invoke();
-                });
+                    onFinish?.Invoke();
+                }, onBegin);
             }
         }
     }
-    public void DestroyAllPanelsInlist(Action callback = null, bool needSavePanel = false)
+    public void DestroyAllPanelsInlist(Action onFinish = null, Action onBegin = null, bool needSavePanel = false)
     {
-        if(currentPanels.Count > 0)
+        if (currentPanels.Count > 0)
         {
-            for(int i = currentPanels.Count - 1; i >= 0; i--)
+            for (int i = currentPanels.Count - 1; i >= 0; i--)
             {
                 var panel = currentPanels[i];
                 panel.Hide(() =>
@@ -199,8 +193,8 @@ public abstract class PanelManager
                         RemoveCurrentPanel(panel);
                     }
                     OnDestroyPanel(panel.name);
-                    callback?.Invoke();
-                });
+                    onFinish?.Invoke();
+                }, onBegin);
             }
         }
     }
@@ -208,8 +202,8 @@ public abstract class PanelManager
     /// 隐藏面板
     /// </summary>
     /// <param name="panelName">面板名</param>
-    /// <param name="callback">隐藏面板完毕之后的委托</param>
-    public virtual void HidePanel(string panelName, Action callback = null, bool needSavePanel = false)
+    /// <param name="onFinish">隐藏面板完毕之后的委托</param>
+    public virtual void HidePanel(string panelName, Action onFinish = null, Action onBegin = null, bool needSavePanel = false)
     {
         if (panelDic.ContainsKey(panelName))
         {
@@ -217,15 +211,15 @@ public abstract class PanelManager
             {
                 RemoveCurrentPanel(panelDic[panelName]);
             }
-            panelDic[panelName].Hide(callback);
+            panelDic[panelName].Hide(onFinish, onBegin);
         }
     }
     /// <summary>
     /// 销毁面板
     /// </summary>
     /// <param name="panelName">面板名</param>
-    /// <param name="callback">销毁面板之后的委托</param>
-    public virtual void DestroyPanel(string panelName, Action callback = null, bool needSavePanel = false)
+    /// <param name="onFinish">销毁面板之后的委托</param>
+    public virtual void DestroyPanel(string panelName, Action onFinish = null, Action onBegin = null, bool needSavePanel = false)
     {
         if (panelDic.ContainsKey(panelName))
         {
@@ -236,8 +230,8 @@ public abstract class PanelManager
                     RemoveCurrentPanel(panelDic[panelName]);
                 }
                 OnDestroyPanel(panelName);
-                callback?.Invoke();
-            });
+                onFinish?.Invoke();
+            }, onBegin);
         }
     }
     /// <summary>
